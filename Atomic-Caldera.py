@@ -257,7 +257,7 @@ def main(inputDir, ouptutDir, csvPath, varCsvPath, ctiPath):
 
 						origCommand = command
 						if (executor.lower() == 'sh' or executor.lower() == 'bash'):
-							executor = 'bash'
+							executor = 'linux'
 							command = command.replace('\\n','\n')
 						elif (executor.lower() == 'command_prompt' or executor.lower() == 'powershell'): 
 							if (executor.lower() == 'command_prompt'):
@@ -267,8 +267,9 @@ def main(inputDir, ouptutDir, csvPath, varCsvPath, ctiPath):
 								command = str(reCmd)
 							else:
 								command = command.replace('\\n','\n')
-							executor = 'psh'
+							executor = 'windows'
 						else:
+							executor = 'darwin'
 							continue
 
 						logging.debug('The command variable type is: {}'.format(type(command)))
